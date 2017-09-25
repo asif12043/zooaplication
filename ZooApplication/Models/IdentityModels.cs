@@ -21,7 +21,7 @@ namespace ZooApplication.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ZooApplicationContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,11 @@ namespace ZooApplication.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Animal> Animals { get; set; }
+
+        public DbSet<AnimalFood> AnimalFoods { get; set; }
+
+        public DbSet<Food> Foods { get; set; }
+
     }
 }
